@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Typography Stack */
+  --font-display: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Typography Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+
+  /* Sizing & Spacing Tokens (as requested) */
+  --size-0: 2px;
+  --size-1: 4px;
+  --size-2: 8px;
+  --size-3: 12px;
+  --size-4: 16px;
+  --size-5: 24px;
+  --size-6: 32px;
+  --size-7: 48px;
+  --size-8: 64px;
+  --size-9: 128px;
+
+  /* Color System (HSL Core Palette) */
+  /* Neutral Greys derived by mixing */
+  --bg-surface: hsl(0, 0%, 100%);
+  --bg-app: hsl(210, 20%, 98%); /* Slightly cooler off-white */
+  
+  --fg-default: hsl(220, 39%, 11%); /* Very dark grey, almost black */
+  --fg-secondary: hsl(215, 16%, 47%);
+  --fg-tertiary: hsl(215, 20%, 65%);
+
+  --border-muted: hsl(210, 40%, 96%);
+  --border-strong: hsl(220, 13%, 91%);
+
+  /* Semantic Roles */
+  --accent-positive-h: 161; --accent-positive-s: 94%; --accent-positive-l: 30%;
+  --accent-positive: hsl(var(--accent-positive-h), var(--accent-positive-s), var(--accent-positive-l));
+  --accent-positive-light: hsl(152, 69%, 95%);
+  --accent-positive-hover: color-mix(in srgb, var(--accent-positive) 100%, white 10%);
+
+  --accent-danger-h: 0; --accent-danger-s: 84%; --accent-danger-l: 60%;
+  --accent-danger: hsl(var(--accent-danger-h), var(--accent-danger-s), var(--accent-danger-l));
+  --accent-danger-light: hsl(0, 86%, 97%);
+  --accent-danger-hover: color-mix(in srgb, var(--accent-danger) 100%, black 10%);
+
+  --accent-warning-h: 38; --accent-warning-s: 92%; --accent-warning-l: 50%;
+  --accent-warning: hsl(var(--accent-warning-h), var(--accent-warning-s), var(--accent-warning-l));
+  --accent-warning-light: hsl(48, 100%, 96%);
+  --accent-warning-hover: color-mix(in srgb, var(--accent-warning) 100%, black 10%);
+
+  /* Elevation Recipes / Layers */
+  --shadow-base: none;
+  --shadow-sticky: 0 1px 2px rgba(0,0,0,.05);
+  --shadow-dropdown: 0 2px 4px rgba(0,0,0,.08);
+  --shadow-modal: 0 4px 16px rgba(0,0,0,.12);
+  --shadow-overlay: 0 20px 40px rgba(17, 24, 39, 0.12); /* Existing deeper modal float */
+
+  /* Modern Radii */
+  --radius-md: var(--size-4);
+  --radius-lg: var(--size-5);
+  --radius-xl: var(--size-6);
+  --radius-full: 9999px;
+  
+  /* Fallback spacing aliases to minimize breaking changes */
+  --spacing-xs: var(--size-1);
+  --spacing-sm: var(--size-3);
+  --spacing-md: var(--size-4);
+  --spacing-lg: var(--size-6);
+  --spacing-xl: var(--size-7);
+  --primary-color: var(--accent-positive);
+  --danger-color: var(--accent-danger);
+  --warning-color: var(--accent-warning);
+  --text-primary: var(--fg-default);
+  --text-secondary: var(--fg-secondary);
+  --text-tertiary: var(--fg-tertiary);
+  --bg-color: var(--bg-app);
+  --surface-color: var(--bg-surface);
+  --border-color: var(--border-muted);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-app);
+  color: var(--fg-default);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, textarea {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* Base Utility Classes */
+.text-primary { color: var(--fg-default); }
+.text-secondary { color: var(--fg-secondary); }
+.text-tertiary { color: var(--fg-tertiary); }
+.text-danger { color: var(--accent-danger); }
+.text-warning { color: var(--accent-warning); }
+.text-success { color: var(--accent-positive); }
+
+.bg-danger-light { background-color: var(--accent-danger-light); color: var(--accent-danger); }
+.bg-warning-light { background-color: var(--accent-warning-light); color: var(--accent-warning); }
+.bg-success-light { background-color: var(--accent-positive-light); color: var(--accent-positive); }
+
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+/* Accessible Motion Physics */
+@keyframes slideUpSmooth {
+  0% { opacity: 0; transform: translateY(var(--size-6)) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeInSmooth {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUpSmooth 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeInSmooth 0.2s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* Common Layout Utilities Mapped to Tokens */
+.mt-1 { margin-top: var(--size-1); }
+.mt-2 { margin-top: var(--size-2); }
+.mt-3 { margin-top: var(--size-3); }
+.mt-4 { margin-top: var(--size-4); }
+.mt-6 { margin-top: var(--size-5); }
+.mt-8 { margin-top: var(--size-6); }
+.mt-10 { margin-top: var(--size-7); }
+
+.mb-1 { margin-bottom: var(--size-1); }
+.mb-2 { margin-bottom: var(--size-2); }
+.mb-3 { margin-bottom: var(--size-3); }
+.mb-4 { margin-bottom: var(--size-4); }
+.mb-6 { margin-bottom: var(--size-5); }
+.mb-8 { margin-bottom: var(--size-6); }
+.mb-10 { margin-bottom: var(--size-7); }
+
+.ml-1 { margin-left: var(--size-1); }
+.ml-2 { margin-left: var(--size-2); }
+
+.px-1 { padding-left: var(--size-1); padding-right: var(--size-1); }
+.px-2 { padding-left: var(--size-2); padding-right: var(--size-2); }
+.px-4 { padding-left: var(--size-4); padding-right: var(--size-4); }
+
+.py-1 { padding-block: var(--size-1); }
+.py-2 { padding-block: var(--size-2); }
+.py-4 { padding-block: var(--size-4); }
+
+.p-1 { padding: var(--size-1); }
+.p-2 { padding: var(--size-2); }
+.p-3 { padding: var(--size-3); }
+.p-4 { padding: var(--size-4); }
+
+.gap-xs { gap: var(--size-1); }
+.gap-sm { gap: var(--size-2); }
+.gap-md { gap: var(--size-4); }
+.gap-lg { gap: var(--size-5); }
+
+.flex-1 { flex: 1; }
+.shrink-0 { flex-shrink: 0; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
