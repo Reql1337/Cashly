@@ -1,16 +1,60 @@
-# React + Vite
+# <div align="center"><img src="public/logo.gif" width="120" /><br/>Cashly</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <h3>Stop overspending before it happens.</h3>
+  <p>Cashly is a real-time behavioral spending coach designed to intervene at your riskiest moments using cognitive psychology and smart alerts.</p>
+</div>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠 Features
 
-## React Compiler
+### 🛡️ Behavioral Interventions
+- **Friction-Based Alerts**: Real-time prompts that ask, "Would you still buy this tomorrow?"
+- **Safety Limits**: dynamic daily limits based on your actual safety-to-spend balance.
+- **Geo-Fencing**: Automatic alerts when entering high-risk shopping environments like Target or grocery stores.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🧠 Pattern Recognition
+- **Emotion Logging**: Track how stress, boredom, or fatigue drives late-night delivery and impulse buys.
+- **Predictive Analysis**: Detects when you're 40% more likely to overspend based on day-of-week and mental state.
+- **Weekly Digest**: Summarized behavioral successes and "closeness to failure" insights.
 
-## Expanding the ESLint configuration
+### 📈 Gamified Discipline
+- **Progression Levels**: Rank up from "Starter" to "Elite" as you maintain spending streaks.
+- **Impulse Savings Tracker**: See exactly how much money you've saved by simply choosing to "wait 24 hours."
+- **Streak Maintenance**: Visualize your consistent controlled spending days.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📱 Premium Mobile Interface
+- **Modern iOS Aesthetic**: Clean, high-contrast UI with glassmorphism and breathing mesh gradients.
+- **Staggered Animations**: Fluid, tactile interactions that make financial discipline feel rewarding.
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/Reql1337/Cashly.git
+   ```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🏗 Technology Stack
+- **Frontend**: React + Vite
+- **Styling**: Vanilla CSS (Modern CSS Variables & Utility Patterns)
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ by Reql</sub>
+</div>
