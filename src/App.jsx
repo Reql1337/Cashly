@@ -7,6 +7,7 @@ import Insights from './pages/Insights';
 import Alerts from './pages/Alerts';
 import Progress from './pages/Progress';
 import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/alerts" element={<Alerts />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
   );

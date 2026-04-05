@@ -41,13 +41,13 @@ const Onboarding = () => {
   return (
     <div className="flex-col flex-1 w-full h-full overflow-hidden" style={{ backgroundColor: 'var(--bg-surface)' }}>
       {step < 3 ? (
-        <div className="flex-col p-6 flex-1 text-center animate-fade-in" key={step}>
+        <div className="flex-col p-6 flex-1 text-center animate-fade-in">
           {/* Main Content Area - Use fixed gap to keep content together */}
-          <div className="flex-1 flex flex-col justify-center items-center w-full gap-size-6 max-h-[70%] mt-auto">
-            <div className="animate-slide-up" style={{ animationDelay: '100ms' }}>
+          <div className="flex-1 flex flex-col justify-center items-center w-full gap-size-6 max-h-[70%] mt-auto transition-all duration-300">
+            <div>
               {slides[step].icon}
             </div>
-            <div className="flex flex-col gap-3 animate-slide-up" style={{ animationDelay: '200ms' }}>
+            <div className="flex flex-col gap-3">
               <h1 className="screen-title mb-0" style={{ fontSize: 'clamp(1.75rem, 7vw, 2.25rem)', lineHeight: 1.1 }}>
                 {slides[step].title}
               </h1>
@@ -58,7 +58,7 @@ const Onboarding = () => {
           </div>
           
           {/* Controls Area - Push to bottom but with better integration */}
-          <div className="w-full pt-10 pb-4 mt-auto flex-col items-center gap-6 animate-slide-up" style={{ animationDelay: '300ms' }}>
+          <div className="w-full pt-10 pb-4 mt-auto flex-col items-center gap-6">
             <div className="flex gap-2 justify-center">
               {[0, 1, 2, 3].map((i) => (
                 <div 
