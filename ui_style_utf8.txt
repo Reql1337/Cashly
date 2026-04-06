@@ -1,0 +1,58 @@
+﻿## UI Pro Max Search Results
+**Domain:** style | **Query:** glassmorphism
+**Source:** styles.csv | **Found:** 3 results
+
+### Result 1
+- **Style Category:** Glassmorphism
+- **Type:** General
+- **Keywords:** Frosted glass, transparent, blurred background, layered, vibrant background, light source, depth, multi-layer
+- **Primary Colors:** Translucent white: rgba(255,255,255,0.1-0.3)
+- **Effects & Animation:** Backdrop blur (10-20px), subtle border (1px solid rgba white 0.2), light reflection, Z-depth
+- **Best For:** Modern SaaS, financial dashboards, high-end corporate, lifestyle apps, modal overlays, navigation
+- **Light Mode Γ£ô:** Γ£ô Full
+- **Dark Mode Γ£ô:** Γ£ô Full
+- **Performance:** ΓÜá Good
+- **Accessibility:** ΓÜá Ensure 4.5:1
+- **Framework Compatibility:** Tailwind 9/10, MUI 8/10, Chakra 8/10
+- **Complexity:** Medium
+- **AI Prompt Keywords:** Design a glassmorphic interface with frosted glass effect. Use backdrop blur (10-20px), translucent overlays (rgba 10-30% opacity), vibrant background colors, subtle borders, light source reflection, layered depth. Perfect for modern overlays and cards.
+- **CSS/Technical Keywords:** backdrop-filter: blur(15px), background: rgba(255, 255, 255, 0.15), border: 1px solid rgba(255,255,255,0.2), -webkit-backdrop-filter: blur(15px), z-index layering for depth
+- **Implementation Checklist:** ΓÿÉ Backdrop-filter blur 10-20px, ΓÿÉ Translucent white 15-30% opacity, ΓÿÉ Subtle border 1px light, ΓÿÉ Vibrant background verified, ΓÿÉ Text contrast 4.5:1 checked
+- **Design System Variables:** --blur-amount: 15px, --glass-opacity: 0.15, --border-color: rgba(255,255,255,0.2), --background: vibrant color, --text-color: light/dark based on BG
+
+### Result 2
+- **Style Category:** Modern Dark (Cinema Mobile)
+- **Type:** Mobile
+- **Keywords:** dark mode, cinematic, ambient light, glassmorphism, deep black, indigo, glow, blur, atmospheric, reanimated, haptic, premium, layered, frosted glass, linear gradient
+- **Primary Colors:** Deep #020203, Base #050506, Elevated #0a0a0c, Accent #5E6AD2
+- **Effects & Animation:** Expo.out Bezier(0.16,1,0.3,1) easing; spring modals (damping:20 stiffness:90); haptic-linked press (Impact Light/Medium); animated ambient light blobs (Reanimated translateX/Y slow oscillation); BlurView glassmorphism headers/nav (intensity 20); scale press 0.97 ΓåÆ 1.0; avoid pure #000000 (OLED smear...
+- **Best For:** Developer tools, pro productivity apps, fintech/trading dashboards, media/streaming platforms, AI tool interfaces, high-end gaming companion apps
+- **Light Mode Γ£ô:** Γ£ô Light mode only as exception
+- **Dark Mode Γ£ô:** Γ£ô Dark Mode Primary
+- **Performance:** ΓÜá Good (blur effects require native driver)
+- **Accessibility:** ΓÜá WCAG AA (requires careful accent contrast check)
+- **Framework Compatibility:** React Native 10/10, Expo 10/10, react-native-skia 9/10, SwiftUI 8/10
+- **Complexity:** High
+- **AI Prompt Keywords:** Design a cinematic dark mobile app. Background: LinearGradient from #0a0a0f (top) to #020203 (bottom). Add 2ΓÇô3 absolute animated 'blob' views: circular, blurRadius 30ΓÇô50, opacity 0.08ΓÇô0.12, slow Reanimated oscillation. Cards: borderRadius 16, border rgba(255,255,255,0.08) hairline, subtle top-edge s...
+- **CSS/Technical Keywords:** borderRadius: 16 (cards/buttons), background: LinearGradient #0a0a0fΓåÆ#020203, border: StyleSheet.hairlineWidth rgba(255,255,255,0.08), BlurView intensity={20} tint='dark', useAnimatedStyle + withRepeat (blob oscillation), Easing.bezier(0.16,1,0.3,1), withSpring damping:20 stiffness:90, Haptics.impac...
+- **Implementation Checklist:** ΓÿÉ No pure #000000 backgrounds, ΓÿÉ LinearGradient base screen, ΓÿÉ Animated ambient blobs (Reanimated, native driver), ΓÿÉ BlurView on tab bar and headers, ΓÿÉ borderRadius 16 on all cards, ΓÿÉ Haptic feedback on every Pressable, ΓÿÉ Bezier(0.16,1,0.3,1) easing used, ΓÿÉ Accent glow behind primary button, ΓÿÉ No so...
+- **Design System Variables:** --bg-deep: #020203, --bg-base: #050506, --bg-elevated: #0a0a0c, --surface: rgba(255 255 255/0.05), --foreground: #EDEDEF, --foreground-muted: #8A8F98, --accent: #5E6AD2, --accent-glow: rgba(94 106 210/0.2), --border: rgba(255 255 255/0.08), --radius: 16px, --easing: cubic-bezier(0.16 1 0.3 1), --fon...
+
+### Result 3
+- **Style Category:** Bitcoin DeFi (Mobile)
+- **Type:** Mobile
+- **Keywords:** web3, bitcoin, defi, digital gold, fintech, wallet, orange, glassmorphism, gradient, blur, holographic, trust, precision
+- **Primary Colors:** Bitcoin Orange #F7931A, Burnt Orange #EA580C, Digital Gold #FFD600
+- **Effects & Animation:** Deep void + dark matter surfaces, Bitcoin orange/gold gradients for CTAs, pill buttons with glowing shadows, glassmorphic BlurView nav, monospace data rows, gradient text balances + masked orange-gold, pulsing status indicators and vertical ledger timelines, ultra-thin borders, high-precision typogr...
+- **Best For:** DeFi dashboards, wallets, NFT marketplaces, Web3 social, metaverse utilities, high-tech fintech brands
+- **Light Mode Γ£ô:** Γ£ù Light
+- **Dark Mode Γ£ô:** Γ£ô Dark-only
+- **Performance:** ΓÜá Moderate (gradients+blur)
+- **Accessibility:** Γ£ô WCAG AA with care
+- **Framework Compatibility:** React Native 10/10, Expo 10/10, Reanimated 10/10
+- **Complexity:** High
+- **AI Prompt Keywords:** Design a Bitcoin DeFi mobile app. Background #030304, cards #0F1115, text #FFFFFF, muted #94A3B8. Primary CTA: LinearGradient #EA580CΓåÆ#F7931A with orange glow shadow. Typography: Space Grotesk Bold for headings, Inter for body, JetBrains Mono for prices/hashes. Use BlurView (intensity 20) for nav ba...
+- **CSS/Technical Keywords:** backgroundColor: '#030304', cardBg: '#0F1115', textColor: '#FFFFFF', mutedText: '#94A3B8', borderColor: 'rgba(30,41,59,0.2)', accentBitcoin: '#F7931A', accentBurnt: '#EA580C', accentGold: '#FFD600', borderRadius: 24 for cards, radiusPill: 999 for buttons, BlurView intensity 20, LinearGradient on CTA...
+- **Implementation Checklist:** ΓÿÉ Void/dark-matter palette applied, ΓÿÉ Bitcoin orange/gold gradient buttons, ΓÿÉ BlurView nav implemented, ΓÿÉ Monospace for numeric data, ΓÿÉ Hairline borders on blocks, ΓÿÉ Gradient text on balances, ΓÿÉ Pulsing network status indicators, ΓÿÉ Ledger vertical timeline, ΓÿÉ Haptics on money actions, ΓÿÉ SafeArea + F...
+- **Design System Variables:** --bg-void: #030304, --bg-surface: #0F1115, --fg: #FFFFFF, --fg-muted: #94A3B8, --border-dim: rgba(30,41,59,0.2), --accent-bitcoin: #F7931A, --accent-burnt: #EA580C, --accent-gold: #FFD600, --radius-card: 24px, --radius-pill: 999px, --blur-intensity: 20, --font-heading: Space Grotesk, --font-body: In...
+

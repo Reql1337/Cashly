@@ -14,7 +14,7 @@
   --text-2xl: 2rem;
   --text-3xl: 2.5rem;
 
-  /* Sizing & Spacing Tokens (as requested) */
+  /* Sizing & Spacing Tokens */
   --size-0: 2px;
   --size-1: 4px;
   --size-2: 8px;
@@ -26,53 +26,52 @@
   --size-8: 64px;
   --size-9: 128px;
 
-  /* Color System (HSL Core Palette) */
-  /* Neutral Greys derived by mixing */
-  --bg-surface: hsl(0, 0%, 100%);
-  --bg-app: hsl(210, 20%, 98%); /* Slightly cooler off-white */
+  /* Color System (Cinematic Dark / Glassmorphism) */
+  --bg-app: #020203; /* Deep OLED Black */
+  --bg-surface: rgba(255, 255, 255, 0.03); /* Frosted Glass Base */
   
-  --fg-default: hsl(220, 39%, 11%); /* Very dark grey, almost black */
-  --fg-secondary: hsl(215, 16%, 47%);
-  --fg-tertiary: hsl(215, 20%, 65%);
+  --fg-default: #EDEDEF; /* Off-white for high contrast without eye strain */
+  --fg-secondary: #8A8F98; /* Muted cool grey */
+  --fg-tertiary: #52525B;
 
-  --border-muted: hsl(210, 40%, 96%);
-  --border-strong: hsl(220, 13%, 91%);
+  --border-muted: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
 
-  /* Semantic Roles */
-  --accent-positive-h: 161; --accent-positive-s: 94%; --accent-positive-l: 30%;
-  --accent-positive: hsl(var(--accent-positive-h), var(--accent-positive-s), var(--accent-positive-l));
-  --accent-positive-light: hsl(152, 69%, 95%);
-  --accent-positive-hover: color-mix(in srgb, var(--accent-positive) 100%, white 10%);
+  /* Semantic Roles (Neon Fintech Green) */
+  --accent-positive: #00E676; /* Vibrant neon green */
+  --accent-positive-light: rgba(0, 230, 118, 0.1);
+  --accent-positive-hover: #10FF8B;
+  --accent-glow: rgba(0, 230, 118, 0.25);
 
-  --accent-danger-h: 0; --accent-danger-s: 84%; --accent-danger-l: 60%;
-  --accent-danger: hsl(var(--accent-danger-h), var(--accent-danger-s), var(--accent-danger-l));
-  --accent-danger-light: hsl(0, 86%, 97%);
-  --accent-danger-hover: color-mix(in srgb, var(--accent-danger) 100%, black 10%);
+  --accent-danger: #FF3B30;
+  --accent-danger-light: rgba(255, 59, 48, 0.1);
+  --accent-danger-hover: #FF4F45;
 
-  --accent-warning-h: 38; --accent-warning-s: 92%; --accent-warning-l: 50%;
-  --accent-warning: hsl(var(--accent-warning-h), var(--accent-warning-s), var(--accent-warning-l));
-  --accent-warning-light: hsl(48, 100%, 96%);
-  --accent-warning-hover: color-mix(in srgb, var(--accent-warning) 100%, black 10%);
+  --accent-warning: #FFD600;
+  --accent-warning-light: rgba(255, 214, 0, 0.1);
+  --accent-warning-hover: #FFDE33;
 
   /* Elevation Recipes / Layers */
   --shadow-base: none;
-  --shadow-sticky: 0 1px 2px rgba(0,0,0,.05);
-  --shadow-dropdown: 0 2px 4px rgba(0,0,0,.08);
-  --shadow-modal: 0 4px 16px rgba(0,0,0,.12);
-  --shadow-overlay: 0 20px 40px rgba(17, 24, 39, 0.12); /* Existing deeper modal float */
+  --shadow-sticky: 0 1px 2px rgba(0,0,0,.5);
+  --shadow-dropdown: 0 4px 12px rgba(0,0,0,.5);
+  --shadow-modal: 0 8px 32px rgba(0,0,0,.8);
+  --shadow-overlay: 0 20px 60px rgba(0, 0, 0, 0.9);
 
   /* Modern Radii */
   --radius-md: var(--size-4);
-  --radius-lg: var(--size-5);
+  --radius-lg: 24px; /* Smoother pro max card radius */
   --radius-xl: var(--size-6);
   --radius-full: 9999px;
   
-  /* Fallback spacing aliases to minimize breaking changes */
+  /* Fallback spacing aliases */
   --spacing-xs: var(--size-1);
   --spacing-sm: var(--size-3);
   --spacing-md: var(--size-4);
   --spacing-lg: var(--size-6);
   --spacing-xl: var(--size-7);
+
+  /* Semantic Aliases */
   --primary-color: var(--accent-positive);
   --danger-color: var(--accent-danger);
   --warning-color: var(--accent-warning);
@@ -94,6 +93,9 @@
 body {
   font-family: var(--font-body);
   background-color: var(--bg-app);
+  background-image: radial-gradient(circle at top right, rgba(0, 230, 118, 0.05), transparent 40%),
+                    radial-gradient(circle at bottom left, rgba(94, 106, 210, 0.05), transparent 40%);
+  background-attachment: fixed;
   color: var(--fg-default);
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
@@ -139,6 +141,30 @@ button {
 .items-center { align-items: center; }
 .justify-between { justify-content: space-between; }
 .justify-center { justify-content: center; }
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+}
+
+.glass-nav {
+  background: rgba(2, 2, 3, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.glass-bottom-nav {
+  background: rgba(2, 2, 3, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border-muted);
+}
 
 /* Accessible Motion Physics */
 @keyframes slideUpSmooth {

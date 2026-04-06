@@ -28,7 +28,7 @@ const AlertModal = () => {
         <div className="flex-col gap-sm">
           {/* Compliant Action - Massive, Heavy */}
           <button 
-             className="btn btn-primary" 
+             className="btn btn-success" 
              onClick={closeAlert}
              style={{ padding: '20px', fontSize: '1.2rem', borderRadius: '24px' }}
           >
@@ -36,16 +36,16 @@ const AlertModal = () => {
           </button>
           
           <button 
-             className="btn btn-secondary mt-2" 
+             className="btn glass-panel mt-2" 
              onClick={closeAlert}
-             style={{ padding: '20px', fontSize: '1.2rem', borderRadius: '24px', backgroundColor: 'var(--border-color-dark)' }}
+             style={{ padding: '20px', fontSize: '1.2rem', borderRadius: '24px' }}
           >
             Set $30 Limit
           </button>
 
           {/* Rejection Action - Muted Tertiary Link */}
           <button 
-            className="btn btn-outline mt-4 border-none text-secondary" 
+            className="btn btn-outline mt-4 border-none text-secondary hover:text-danger transition-colors" 
             onClick={closeAlert}
           >
             Buy Anyway

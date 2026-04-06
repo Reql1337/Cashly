@@ -19,7 +19,7 @@ const Home = () => {
       
       {/* V3 Minimal Header - Tightened */}
       <header className="flex justify-center items-center py-4 mb-6 stagger-2">
-         <div className="badge badge-medium shadow-sm" style={{ backgroundColor: 'rgba(255, 251, 235, 0.95)', backdropFilter: 'blur(10px)', border: '1px solid rgba(251, 191, 36, 0.2)' }}>
+         <div className="badge badge-medium shadow-sm glass-panel text-warning" style={{ borderRadius: 'var(--radius-full)' }}>
              Medium Risk
          </div>
       </header>
@@ -44,13 +44,13 @@ const Home = () => {
       </div>
 
       {/* Single Key Insight V3 - Improved Proportions */}
-      <div className="card-editorial flex items-center gap-4 mt-auto mb-4 stagger-4 shadow-xl" style={{ padding: '18px 22px', backgroundColor: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.5)' }}>
-         <div className="p-2.5 bg-danger-light rounded-full text-danger shrink-0 shadow-sm">
+      <div className="card-editorial flex items-center gap-4 mt-auto mb-4 stagger-4 glass-panel" style={{ padding: '18px 22px' }}>
+         <div className="p-2.5 rounded-full shrink-0 shadow-sm" style={{ backgroundColor: 'rgba(255, 59, 48, 0.15)', color: '#FF3B30' }}>
             <MapPin size={24} strokeWidth={2.5} />
          </div>
          <div className="flex-col justify-center">
-            <span className="block text-[0.65rem] font-bold opacity-60 uppercase mb-0.5 tracking-[0.15em]">Context Alert</span>
-            <p className="font-bold text-[1rem] leading-tight text-[#111827] tracking-tight">
+            <span className="block text-[0.65rem] font-bold opacity-60 uppercase mb-0.5 tracking-[0.15em] text-secondary">Context Alert</span>
+            <p className="font-bold text-[1rem] leading-tight tracking-tight text-primary">
                Target and delivery are your biggest risks today.
             </p>
          </div>

@@ -12,10 +12,10 @@ const Settings = () => {
   };
 
   return (
-    <div className="flex-col pb-12" style={{ zIndex: 1, position: 'relative', minHeight: '100%', backgroundColor: 'var(--bg-color)' }}>
+    <div className="flex-col pb-12" style={{ zIndex: 1, position: 'relative', minHeight: '100%' }}>
       {/* Header */}
       <div className="flex items-center justify-between mt-6 px-2 mb-6">
-        <button onClick={handleBack} className="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors active:scale-95">
+        <button onClick={handleBack} className="p-2 -ml-2 rounded-full hover:bg-[var(--border-muted)] transition-colors active:scale-95">
           <ChevronLeft size={28} strokeWidth={2.5} className="text-primary" />
         </button>
         <h1 className="text-xl font-extrabold tracking-tight mb-0">Settings</h1>
@@ -107,7 +107,7 @@ const Settings = () => {
           <div className="inset-group">
             <button className="inset-row w-full justify-between py-3 hover:bg-[var(--border-muted)] transition-colors">
               <div className="flex items-center gap-3 w-full">
-                <div className="p-2.5 shrink-0 bg-gray-100 rounded-lg text-text-primary"><HelpCircle size={18} strokeWidth={2.5} /></div>
+                <div className="p-2.5 shrink-0 rounded-lg text-text-primary" style={{ backgroundColor: 'var(--bg-surface)' }}><HelpCircle size={18} strokeWidth={2.5} /></div>
                 <span className="font-bold text-[1rem] truncate">Help & Feedback</span>
               </div>
               <ChevronRight size={16} className="text-tertiary shrink-0 ml-2" strokeWidth={3} />
@@ -118,8 +118,8 @@ const Settings = () => {
         {/* Action Button */}
         <div className="px-3 mt-6 stagger-4">
           <button 
-             className="btn flex justify-center items-center gap-2 w-full active:scale-95 shadow-sm" 
-             style={{ backgroundColor: 'white', color: 'var(--danger-color)', border: '1px solid var(--danger-light)', padding: '16px' }}
+             className="btn flex justify-center items-center gap-2 w-full active:scale-95 shadow-sm glass-panel" 
+             style={{ color: 'var(--danger-color)', border: '1px solid var(--danger-color)', padding: '16px' }}
              onClick={() => alert("Logging out...")}
           >
             <LogOut size={20} strokeWidth={2.5} />

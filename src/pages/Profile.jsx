@@ -45,11 +45,11 @@ const Profile = () => {
                 className="flex-col shrink-0 items-center justify-center p-3 rounded-[14px]"
                 style={{ 
                   minWidth: '85px',
-                  backgroundColor: mood === m.label ? m.color : 'rgba(0,0,0,0.03)',
+                  backgroundColor: mood === m.label ? m.color : 'var(--bg-surface)',
                   color: mood === m.label ? 'white' : 'var(--text-primary)',
                   transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                   transform: mood === m.label ? 'scale(1.05)' : 'scale(1)',
-                  boxShadow: mood === m.label ? '0 8px 16px -4px rgba(0,0,0,0.1)' : 'none'
+                  boxShadow: mood === m.label ? '0 8px 16px -4px rgba(0,0,0,0.5)' : 'none'
                 }}
               >
                 {m.icon}
@@ -76,7 +76,7 @@ const Profile = () => {
         <div className="inset-group">
           <button className="inset-row w-full justify-between py-3 hover:bg-[var(--border-muted)] transition-colors" onClick={() => alert("Bank Integration opening...")}>
             <div className="flex items-center gap-4 flex-1">
-              <div className="p-2.5 shrink-0 bg-gray-100 rounded-lg text-primary" style={{ backgroundColor: '#f3f4f6' }}><Wallet size={18} strokeWidth={2.5} /></div>
+              <div className="p-2.5 shrink-0 rounded-lg text-primary" style={{ backgroundColor: 'var(--bg-surface)' }}><Wallet size={18} strokeWidth={2.5} /></div>
               <div className="flex-col items-start text-left">
                 <span className="font-bold text-[1rem]">Linked Accounts</span>
                 <span className="text-xs font-semibold text-secondary lowercase">Chase •••• 1234</span>
@@ -118,7 +118,7 @@ const Profile = () => {
 
           <div className="inset-row w-full justify-between py-3 hover:bg-transparent">
             <div className="flex items-center gap-3 w-full pr-4">
-              <div className="p-2.5 shrink-0 bg-[#eff6ff] rounded-lg text-[#3b82f6]"><Shield size={18} strokeWidth={2.5} /></div>
+              <div className="p-2.5 shrink-0 rounded-lg text-[#60a5fa]" style={{ backgroundColor: 'rgba(96, 165, 250, 0.15)' }}><Shield size={18} strokeWidth={2.5} /></div>
               <div className="flex flex-col items-start text-left overflow-hidden w-full">
                 <span className="font-bold text-[1rem] truncate w-full">Geo-Fencing</span>
                 <span className="text-xs font-semibold text-secondary truncate w-full">Real-time alerts at store</span>
@@ -142,7 +142,7 @@ const Profile = () => {
           
           <button className="inset-row w-full justify-between py-3 hover:bg-[var(--border-muted)] transition-colors" onClick={() => navigate('/settings')}>
             <div className="flex items-center gap-3 w-full">
-              <div className="p-2.5 shrink-0 bg-gray-100 rounded-lg text-text-primary" style={{ backgroundColor: '#f3f4f6' }}><Settings size={18} strokeWidth={2.5} /></div>
+              <div className="p-2.5 shrink-0 rounded-lg text-text-primary" style={{ backgroundColor: 'var(--bg-surface)' }}><Settings size={18} strokeWidth={2.5} /></div>
               <span className="font-bold text-[1rem] truncate">Safety Preferences</span>
             </div>
             <ChevronRight size={16} className="text-tertiary shrink-0 ml-2" strokeWidth={3} />

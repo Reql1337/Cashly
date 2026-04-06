@@ -39,7 +39,8 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="flex-col flex-1 w-full h-full overflow-hidden" style={{ backgroundColor: 'var(--bg-surface)' }}>
+    <div className="flex-col flex-1 w-full h-full overflow-hidden relative">
+      <div className="mesh-bg"></div>
       {step < 3 ? (
         <div className="flex-col p-6 flex-1 text-center animate-fade-in">
           {/* Main Content Area - Use fixed gap to keep content together */}
