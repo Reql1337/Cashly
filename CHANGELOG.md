@@ -5,9 +5,11 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- **GitHub Pages Deployment**: Added `gh-pages` and deployment automation scripts for live project hosting.
 - **Settings Page**: Built a robust, premium `Settings.jsx` page with navigation, Account linking UI, push notification toggles, and biometric security options.
 
 ### Changed
+- **Routing Infrastructure**: Swapped `BrowserRouter` for `HashRouter` to enable robust, server-less deployment on static hosts like GitHub Pages without 404 errors.
 - **Documentation**: Professionalized `README.md` with full feature overview, tech stack documentation, and set up instructions. Integrated branding via the new animated logo.
 - **Global Layout**: Refined `main-content` padding to a consistent 16px (`var(--size-4)`) for a more balanced mobile viewport.
 - **Onboarding**: Removed disruptive bounding animations on step transitions to deliver a smoother, native-app feel. Rebalanced vertical layout and controls positioning.
