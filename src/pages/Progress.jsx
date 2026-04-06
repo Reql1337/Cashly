@@ -6,54 +6,61 @@ const Progress = () => {
   const { user } = useCashly();
 
   return (
-    <div className="flex-col gap-4 mt-6 pb-12 relative" style={{ zIndex: 1 }}>
-      <div className="flex flex-col gap-1 stagger-1 mb-2 px-1">
-        <h1 className="screen-title text-2xl tracking-tight mb-0">Discipline</h1>
-        <p className="screen-subtitle mb-0 text-sm font-semibold opacity-60">Mastering your behavior.</p>
-      </div>
+    <div className="flex-col gap-6 mt-6 pb-12 px-2 relative" style={{ zIndex: 1 }}>
+      <header className="flex-col gap-0.5 mb-2 stagger-1">
+        <h1 className="text-xl font-bold tracking-tight text-primary mb-0">Discipline</h1>
+        <p className="text-[0.85rem] text-secondary font-normal tracking-wide">Mastering your behavior.</p>
+      </header>
 
-      {/* V2 Story Capsule - Compacted */}
-      <div className="card-editorial flex-col p-6 overflow-hidden relative stagger-2 glass-panel" 
+      {/* V4 Story Capsule - Thinner, more elegant */}
+      <div className="card-editorial flex-col p-6 overflow-hidden relative stagger-2 glass-panel border-[0.5px] border-white/5" 
         style={{ color: 'var(--text-primary)' }}
       >
-        <Sparkles size={28} strokeWidth={2} className="mb-4 text-warning" />
-        <h2 className="text-[2.25rem] font-black mb-0 tracking-tighter" style={{ letterSpacing: '-0.06em' }}>Level {user.currentLevel}</h2>
-        <div className="text-[0.6rem] font-black uppercase tracking-[0.25em] opacity-40 mb-6 mt-0.5">
-          {user.levelName} Dashboard
+        <Sparkles size={24} strokeWidth={2.5} className="mb-3 text-warning drop-shadow-md" />
+        <h2 className="text-[2rem] font-bold mb-0 tracking-tight text-primary">Level {user.currentLevel}</h2>
+        <div className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-secondary opacity-80 mb-6 mt-1">
+          {user.levelName}
         </div>
         
-        {/* Progress bar to next level */}
-        <div className="w-full bg-[rgba(255,255,255,0.08)] rounded-full h-[5px] mb-3 overflow-hidden">
-          <div className="bg-success-light h-full rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]" style={{ width: '65%', transition: 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)' }}></div>
+        {/* Apple-style thin progress bar */}
+        <div className="w-full rounded-full h-[4px] mb-3 overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+          <div className="bg-success h-full rounded-full shadow-[0_0_8px_rgba(16,185,129,0.5)]" style={{ width: '65%', transition: 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)' }}></div>
         </div>
-        <p className="text-xs font-bold opacity-60">Almost at 'Elite Level'. Stay consistent.</p>
+        <p className="text-[0.75rem] font-medium text-secondary">Almost at 'Elite Level'. Stay consistent.</p>
       </div>
 
-      {/* Two clean data points */}
-      <div className="flex gap-4 stagger-3">
-        <div className="card-editorial flex-1 flex-col justify-center p-5 glass-panel" style={{ padding: '20px' }}>
-          <span className="text-2xl font-black tracking-tighter text-success">${user.points}</span>
-          <span className="text-[0.65rem] font-black opacity-50 mt-1 uppercase tracking-widest leading-none text-secondary">Total Saved</span>
-        </div>
-        <div className="card-editorial flex-1 flex-col justify-center p-5 glass-panel" style={{ padding: '20px' }}>
-          <span className="text-2xl font-black tracking-tighter text-warning">{user.streak} Days</span>
-          <span className="text-[0.65rem] font-black opacity-50 mt-1 uppercase tracking-widest leading-none">Active Streak</span>
+      {/* V4 Sleek Inset Data Points */}
+      <div className="stagger-3">
+        <div className="inset-group">
+          
+          <div className="inset-row w-full justify-between py-3">
+            <span className="text-[0.85rem] font-bold text-secondary">Total Prevented Leaks</span>
+            <span className="text-[1.1rem] font-bold tracking-tighter text-success">${user.points}</span>
+          </div>
+
+          <div className="inset-row w-full justify-between py-3">
+            <span className="text-[0.85rem] font-bold text-secondary">Current Discipline Streak</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[1.1rem] font-bold tracking-tighter text-warning">{user.streak} Days</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Narrative block - Optimized */}
-      <h3 className="font-black text-xl mt-4 mb-0 tracking-tight stagger-4 px-1">Weekly Digest</h3>
+      {/* Algorithmic Win State */}
+      <h3 className="font-bold text-[0.7rem] uppercase tracking-[0.15em] text-secondary ml-1 mt-2 opacity-70 stagger-4">Behavioral Win</h3>
       
-      <div className="card-editorial p-5 border-l-[4px] border-l-primary-color stagger-5 glass-panel">
-         <p className="text-[0.95rem] font-bold leading-snug text-primary">
-           "On Friday, you paused instead of spending $65 on delivery. That is behavioral change in action."
+      <div className="card-editorial p-5 border-l-[3px] border-l-success stagger-5 glass-panel" style={{ backgroundColor: 'rgba(16, 185, 129, 0.05)' }}>
+         <p className="text-[0.9rem] font-medium leading-relaxed text-primary">
+           On Friday, you successfully paused instead of making a high-risk <span className="font-bold text-success">$65</span> purchase. 
          </p>
          
          <button 
-            className="flex items-center gap-2 font-black text-success mt-4 pt-4 border-t border-[var(--border-muted)] w-full text-xs uppercase tracking-widest hover:opacity-75 transition-opacity"
+            className="flex items-center justify-between w-full font-bold text-success mt-4 pt-4 border-t border-success/10 text-[0.75rem] uppercase tracking-wider hover:opacity-80 transition-opacity"
             onClick={() => alert("Full weekly logic analysis...")}
           >
-            Weekly analysis <ArrowRight size={14} strokeWidth={3} />
+            Review Analysis <ArrowRight size={14} strokeWidth={3} />
          </button>
       </div>
     </div>

@@ -26,11 +26,14 @@
   font-weight: 600;
   gap: 6px;
   width: 20%;
-  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s;
+  opacity: 0.6;
+  transition: opacity 0.2s, color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s;
 }
 
 .nav-item.active {
-  color: var(--accent-positive); /* Accent styling for active state in dark mode */
+  color: var(--accent-positive);
+  opacity: 1;
+  text-shadow: 0 0 12px rgba(0, 230, 118, 0.3);
 }
 
 .nav-item:active {

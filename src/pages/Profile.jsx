@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCashly } from '../context/CashlyContext';
-import { Settings, Bell, Shield, Wallet, Frown, Smile, Zap, RefreshCw, ChevronRight, User } from 'lucide-react';
+import { Settings, Shield, Wallet, Zap, ZapOff, Activity, ChevronRight, User } from 'lucide-react';
 
 const Profile = () => {
   const { user } = useCashly();
   const navigate = useNavigate();
-  const [mood, setMood] = useState(null);
+  const [energyState, setEnergyState] = useState(null);
   const [strictMode, setStrictMode] = useState(true);
   const [locationTriggers, setLocationTriggers] = useState(true);
 
-  const moods = [
-    { label: 'Stressed', icon: <Frown size={28} strokeWidth={2} />, color: 'var(--danger-color)' },
-    { label: 'Bored', icon: <RefreshCw size={28} strokeWidth={2} />, color: 'var(--warning-color)' },
-    { label: 'Happy', icon: <Smile size={28} strokeWidth={2} />, color: 'var(--success-color)' },
-    { label: 'Tired', icon: <Zap size={28} strokeWidth={2} className="opacity-50" />, color: 'var(--text-secondary)' },
+  const energies = [
+    { id: 'HIGH', label: 'Optimal', icon: <Zap size={22} strokeWidth={2.5} />, color: 'var(--success-color)' },
+    { id: 'BASE', label: 'Baseline', icon: <Activity size={22} strokeWidth={2.5} />, color: 'var(--text-secondary)' },
+    { id: 'LOW', label: 'Depleted', icon: <ZapOff size={22} strokeWidth={2.5} />, color: 'var(--danger-color)' }
   ];
 
   return (
@@ -23,92 +22,81 @@ const Profile = () => {
       {/* Header - Refined Proportions */}
       <div className="flex items-center gap-4 mt-6 mb-8 stagger-1 px-2">
          <div 
-           className="w-14 h-14 shrink-0 rounded-full text-white flex items-center justify-center shadow-sm"
-           style={{ background: 'linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%)' }}
+           className="w-14 h-14 shrink-0 rounded-full text-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+           style={{ background: 'var(--surface-color)' }}
          >
             <User size={26} strokeWidth={2.5} />
          </div>
          <div className="flex-col">
-            <h1 className="text-xl font-extrabold tracking-tight" style={{ lineHeight: 1.1 }}>{user.name}</h1>
-            <p className="text-secondary font-semibold text-xs mt-1 uppercase tracking-wider opacity-70">Rank: {user.levelName}</p>
+            <h1 className="text-xl font-bold tracking-tight text-primary mb-0">{user.name}</h1>
+            <p className="text-secondary font-medium text-[0.8rem] mt-0.5 tracking-wide opacity-80">Rank: <span className="text-primary font-bold">{user.levelName}</span></p>
          </div>
       </div>
 
-      {/* Mood Tracker */}
-      <div className="stagger-2 mb-6 px-1">
-          <h3 className="font-bold text-[0.75rem] mb-2 uppercase tracking-[0.15em] text-[#6b7280] ml-3 opacity-80">Daily Log</h3>
-          <div className="inset-group p-2 flex gap-3 overflow-x-auto scrollbar-hide">
-            {moods.map(m => (
-              <button 
-                key={m.label}
-                onClick={() => setMood(m.label)}
-                className="flex-col shrink-0 items-center justify-center p-3 rounded-[14px]"
+      {/* Behavioral: Energy State Tracker */}
+      <div className="stagger-2 mb-8 px-1">
+          <h3 className="font-bold text-[0.7rem] mb-2 uppercase tracking-[0.15em] text-secondary ml-1 opacity-70">Energy State</h3>
+          <div className="flex gap-2 w-full mb-3">
+            {energies.map(e => (
+               <button 
+                key={e.id}
+                onClick={() => setEnergyState(e.id)}
+                className="flex flex-col flex-1 items-center justify-center p-3 rounded-xl border border-white/5 bg-white/5 transition-all"
                 style={{ 
-                  minWidth: '85px',
-                  backgroundColor: mood === m.label ? m.color : 'var(--bg-surface)',
-                  color: mood === m.label ? 'white' : 'var(--text-primary)',
-                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transform: mood === m.label ? 'scale(1.05)' : 'scale(1)',
-                  boxShadow: mood === m.label ? '0 8px 16px -4px rgba(0,0,0,0.5)' : 'none'
+                  backgroundColor: energyState === e.id ? 'var(--surface-color)' : 'rgba(255,255,255,0.03)',
+                  color: energyState === e.id ? e.color : 'var(--text-secondary)',
+                  transform: energyState === e.id ? 'scale(1.02)' : 'scale(1)',
+                  boxShadow: energyState === e.id ? '0 4px 12px rgba(0,0,0,0.5)' : 'none',
+                  border: energyState === e.id ? `1px solid ${e.color}33` : '1px solid rgba(255,255,255,0.05)'
                 }}
               >
-                {m.icon}
-                <span className="text-[0.65rem] font-bold mt-2 uppercase tracking-wider">{m.label}</span>
+                {e.icon}
+                <span className="text-[0.65rem] font-bold mt-2 uppercase tracking-widest">{e.label}</span>
               </button>
             ))}
           </div>
           
-          {mood && (
-            <div className="mx-2 mt-3 px-4 py-3 bg-warning-light border-l-[3px] border-warning-color rounded-r-lg animate-slide-up shadow-sm">
-              <p className="text-[0.9rem] font-bold text-warning-color leading-tight">
-                {mood === 'Stressed' && "Stress alert: You spend 40% more in this state. Pause today."}
-                {mood === 'Bored' && "Focus: Boredom is your #1 trigger for delivery leaks. Stay strong."}
-                {mood === 'Happy' && `Great energy! You're on a ${user.streak}-day controlled streak.`}
-                {mood === 'Tired' && "Low energy detected. Guard against convenience spending."}
+          {energyState && (
+            <div className="p-4 rounded-xl flex items-start gap-3 border-[0.5px] border-white/5 animate-slide-up"
+              style={{ backgroundColor: energyState === 'LOW' ? 'rgba(255, 59, 48, 0.08)' : energyState === 'HIGH' ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255, 255, 255, 0.05)' }}
+            >
+              <div 
+                className="w-1.5 self-stretch rounded-full" 
+                style={{ backgroundColor: energyState === 'LOW' ? 'var(--danger-color)' : energyState === 'HIGH' ? 'var(--success-color)' : 'var(--text-secondary)' }}
+              ></div>
+              <p className="text-[0.8rem] font-medium leading-relaxed my-0.5" style={{ color: energyState === 'LOW' ? '#FF4F45' : energyState === 'HIGH' ? 'var(--success-color)' : 'var(--text-secondary)' }}>
+                {energyState === 'LOW' && "Depleted states increase impulse delivery likelihood by 68%. Strict parameters engaged."}
+                {energyState === 'BASE' && "Baseline metrics recorded. Budget guardrails operating nominally."}
+                {energyState === 'HIGH' && `Optimal state detected. Leverage this to solidify your ${user.streak}-day controlled streak.`}
               </p>
             </div>
           )}
       </div>
 
-      {/* Connections */}
-      <div className="stagger-3 mb-6 px-1">
-        <h3 className="font-bold text-[0.75rem] mb-2 uppercase tracking-[0.15em] text-[#6b7280] ml-3 opacity-80">Financial Sync</h3>
-        <div className="inset-group">
-          <button className="inset-row w-full justify-between py-3 hover:bg-[var(--border-muted)] transition-colors" onClick={() => alert("Bank Integration opening...")}>
-            <div className="flex items-center gap-4 flex-1">
-              <div className="p-2.5 shrink-0 rounded-lg text-primary" style={{ backgroundColor: 'var(--bg-surface)' }}><Wallet size={18} strokeWidth={2.5} /></div>
-              <div className="flex-col items-start text-left">
-                <span className="font-bold text-[1rem]">Linked Accounts</span>
-                <span className="text-xs font-semibold text-secondary lowercase">Chase •••• 1234</span>
+      {/* Security Interventions - Premium Fintech V4 */}
+      <div className="stagger-3 px-1 mb-6">
+        <h3 className="font-bold text-[0.7rem] mb-2 uppercase tracking-[0.15em] text-secondary ml-1 opacity-70">Security Protocols</h3>
+        
+        <div className="flex-col gap-3">
+          {/* Strict Mode Toggle */}
+          <div className="glass-panel p-4 flex justify-between items-center bg-surface-color">
+            <div className="flex gap-3 items-center">
+              <div className="p-2 bg-danger-light rounded-lg text-danger">
+                 <Shield size={18} strokeWidth={2.5} />
+              </div>
+              <div className="flex-col min-w-0">
+                <span className="font-bold text-[0.9rem] text-primary truncate">Strict Mode</span>
+                <span className="text-[0.75rem] text-secondary font-normal truncate">Auto-block high risk merchants</span>
               </div>
             </div>
-            <ChevronRight size={16} className="text-tertiary shrink-0 ml-2" strokeWidth={3} />
-          </button>
-        </div>
-      </div>
-
-      {/* Preferences */}
-      <div className="stagger-4 px-1">
-        <h3 className="font-bold text-[0.75rem] mb-2 uppercase tracking-[0.15em] text-[#6b7280] ml-3 opacity-80">Interventions</h3>
-        <div className="inset-group">
-          
-          <div className="inset-row w-full justify-between py-3">
-            <div className="flex items-center gap-3 w-full pr-4">
-              <div className="p-2.5 shrink-0 bg-danger-light rounded-lg text-danger"><Bell size={18} strokeWidth={2.5} /></div>
-              <div className="flex flex-col items-start text-left overflow-hidden w-full">
-                <span className="font-bold text-[1rem] truncate w-full">Strict Mode</span>
-                <span className="text-xs font-semibold text-secondary truncate w-full">Auto-block high-risk</span>
-              </div>
-            </div>
-            {/* V4 Modern Toggle 1 */}
+            
             <div 
               role="switch" aria-checked={strictMode} tabIndex={0}
               onClick={() => setStrictMode(!strictMode)}
-              className="shrink-0 rounded-full flex items-center p-0.5 border"
+              className="shrink-0 rounded-full flex items-center p-0.5"
               style={{ 
                 width: '44px', height: '24px', cursor: 'pointer', transition: 'all 200ms ease-in-out',
-                backgroundColor: strictMode ? 'var(--accent-positive)' : 'var(--border-strong)',
-                borderColor: 'transparent',
+                backgroundColor: strictMode ? 'var(--danger-color)' : 'var(--border-strong)',
                 justifyContent: strictMode ? 'flex-end' : 'flex-start'
               }}
             >
@@ -116,39 +104,59 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="inset-row w-full justify-between py-3 hover:bg-transparent">
-            <div className="flex items-center gap-3 w-full pr-4">
-              <div className="p-2.5 shrink-0 rounded-lg text-[#60a5fa]" style={{ backgroundColor: 'rgba(96, 165, 250, 0.15)' }}><Shield size={18} strokeWidth={2.5} /></div>
-              <div className="flex flex-col items-start text-left overflow-hidden w-full">
-                <span className="font-bold text-[1rem] truncate w-full">Geo-Fencing</span>
-                <span className="text-xs font-semibold text-secondary truncate w-full">Real-time alerts at store</span>
+          {/* Geo-Fencing Toggle */}
+          <div className="glass-panel p-4 flex justify-between items-center bg-surface-color">
+            <div className="flex gap-3 items-center">
+              <div className="p-2 bg-success-light rounded-lg text-success">
+                 <Activity size={18} strokeWidth={2.5} />
+              </div>
+              <div className="flex-col min-w-0">
+                <span className="font-bold text-[0.9rem] text-primary truncate">Location Guard</span>
+                <span className="text-[0.75rem] text-secondary font-normal truncate">Intervene at known trigger stores</span>
               </div>
             </div>
-             {/* V4 Modern Toggle 2 */}
-             <div 
+            
+            <div 
               role="switch" aria-checked={locationTriggers} tabIndex={0}
               onClick={() => setLocationTriggers(!locationTriggers)}
-              className="shrink-0 rounded-full flex items-center p-0.5 border"
+              className="shrink-0 rounded-full flex items-center p-0.5"
               style={{ 
                 width: '44px', height: '24px', cursor: 'pointer', transition: 'all 200ms ease-in-out',
-                backgroundColor: locationTriggers ? 'var(--accent-positive)' : 'var(--border-strong)',
-                borderColor: 'transparent',
+                backgroundColor: locationTriggers ? 'var(--success-color)' : 'var(--border-strong)',
                 justifyContent: locationTriggers ? 'flex-end' : 'flex-start'
               }}
             >
               <div className="rounded-full bg-white shadow-sm" style={{ width: '20px', height: '20px' }}></div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Integrations */}
+      <div className="stagger-4 px-1">
+        <h3 className="font-bold text-[0.7rem] mb-2 uppercase tracking-[0.15em] text-secondary ml-1 opacity-70">Connections</h3>
+        <div className="inset-group">
+          <button className="inset-row w-full justify-between py-3 hover:bg-[var(--border-muted)] transition-colors" onClick={() => alert("Bank Integration opening...")}>
+            <div className="flex items-center gap-3 flex-1">
+              <div className="p-2 shrink-0 rounded-lg text-primary" style={{ backgroundColor: 'var(--bg-surface)' }}><Wallet size={18} strokeWidth={2.5} /></div>
+              <div className="flex-col items-start text-left">
+                <span className="font-bold text-[0.9rem] text-primary">Linked Accounts</span>
+                <span className="text-[0.75rem] font-normal text-secondary lowercase">Chase •••• 1234</span>
+              </div>
+            </div>
+            <ChevronRight size={16} className="text-tertiary shrink-0" strokeWidth={3} />
+          </button>
           
           <button className="inset-row w-full justify-between py-3 hover:bg-[var(--border-muted)] transition-colors" onClick={() => navigate('/settings')}>
             <div className="flex items-center gap-3 w-full">
-              <div className="p-2.5 shrink-0 rounded-lg text-text-primary" style={{ backgroundColor: 'var(--bg-surface)' }}><Settings size={18} strokeWidth={2.5} /></div>
-              <span className="font-bold text-[1rem] truncate">Safety Preferences</span>
+              <div className="p-2 shrink-0 rounded-lg text-text-primary" style={{ backgroundColor: 'var(--bg-surface)' }}><Settings size={18} strokeWidth={2.5} /></div>
+              <span className="font-bold text-[0.9rem] text-primary truncate">Preferences</span>
             </div>
-            <ChevronRight size={16} className="text-tertiary shrink-0 ml-2" strokeWidth={3} />
+            <ChevronRight size={16} className="text-tertiary shrink-0" strokeWidth={3} />
           </button>
         </div>
       </div>
+      
     </div>
   );
 };
